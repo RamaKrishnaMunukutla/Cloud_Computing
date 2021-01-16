@@ -1,0 +1,67 @@
+
+
+   ....Jenkins880......  
+
+=====================================================================================================
+  
+ DevOps := (CT, CI, CD, CM)  ////  Here CI, CD done by Docker.
+~~~~~~~~~
+
+           https://nareshit.in/devops-training/
+  
+ LifeCycle :=
+~~~~~~~~~~~~ 
+  
+  Plan ---> Dev ---> Build ---> Test && 
+                                  |
+								  |-------> Deploy ----> Operate -----> Monitor 
+                             (Integrate)
+
+
+
+----> Plan & Dev -- JIIRA, SVN / GIT .
+
+---->      Build -- Maven / Gradle
+
+---->Integration -- Jenkins(**) / Bamboo / Hudson
+  
+----> Deployment -- Docker / Kubernates  ....../#/#/#/.....  Ansible ----> Configuration-Management-Tool
+
+---->    Monitor -- stack && Nagios
+  
+=============================================================================================
+  
+ Jenkins880 := ( GIT ----> Jenkins ----> SeleniumServer ----> ProductionServer )
+~~~~~~~~~~~~
+--->Jenkins server finds the changes that have occurred GIT. Jenkins will draw those changes  Builds Regularly.
+--->If built is successful, then Jenkins server deploys the built in the test server.
+--->After testing, Jenkins server generates a feedback and then notifies the developers about the build and test results.
+--->Repeat Above steps....
+ 
+ 
+---->Jenkins follows Master-Slave architecture to manage distributed builds. In this architecture, slave and master communicate through TCP/IP protocol.
+ 
+ 
+ 
+  
+=====================================================================================================  
+  
+  
+ Docker730 :=
+~~~~~~~~~~~~~  
+
+---->It offers a container environment which can be used to host any application.  
+  
+  
+  
+  
+===================================================================================================  
+  
+  
+  
+  
+  
+  
+  
+  
+  

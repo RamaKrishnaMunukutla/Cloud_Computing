@@ -1,0 +1,190 @@
+ 
+ 
+
+
+=====================================================================================================================
+
+                            Youtube ----> PROGRAMMING KNOWLEDGE  (Install && Downloads Ubuntu &&VM) 
+
+ mount -rw -o remount / 
+ passwd rama
+ 
+  Pass ----> Ubuntu910  ///  Website_Login ----> Ubuntu910
+  
+  1. Linux
+  2. AWS
+  3. DevOps 
+  
+=====================================================================================================================
+  
+  Small Button (Left side of Home/DeskTop) ----> Under "FileSystem" , we can see Installed-Softwares 
+  
+  
+    Downloads ---> Users / Local  / Bin  
+  
+  
+ Install Sofwares := /// Ubuntu Softwares 
+~~~~~~~~~~~~~~~~~~~
+  sudo apt-get install build-essential 
+  sudo apt-get install openjdk-11-jdk 
+  
+=====================================================================================================================
+  
+ Directories in Linux := // Case_Sensitive 
+~~~~~~~~~~~~~~~~~~~~~~~~  
+ 
+  mkdir  Test   ---------> Makes  Directory
+   ls     -r ------------> Include all Sub-Directories    //// cd.. -----> Come Out of Directory 
+  cd   Test / -----------> Changes Directory 
+  cp  FN.txt FN2.txt ----> Copy Content and Creates && Pate in Another File 
+ 
+ 
+  rmdir  Test ----------> Deletes Directory  //// rm FN.txt ----> Deletes teh File form Directory (y && ls)
+  nano <File_Name> -----> Nano Command Line 
+  rm -r <DN> -----------> Deletes Curent Directory and Sub-Directories also. 
+  
+  
+  vi FN.txt ------------> Creates New file if it doesnot Exists 
+  
+  
+  ls -a ----------------> Shows all Files 
+  cat> FN.txt ----------> Created File and Appends data 
+  
+  
+  ls / -----------------> Shows Important Folder 
+  ls /bin --------------> Where all Command-Line-Utilities are Stored.  
+  ls /boot -------------> Shows Linux-StartUp Files (including Linux-Kernal)
+ 
+ 
+  ls /ect --------------> Contains all Configuration Files 
+  ls /dev --------------> Shows all Hardware and Software Devices 
+  ls /lib --------------> Shows Differnet Libraries 
+ 
+ 
+  ls /proc -------------> Shows all Proceeses 
+  ls /sbin -------------> Shows all Administration commands
+  
+=====================================================================================================================   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

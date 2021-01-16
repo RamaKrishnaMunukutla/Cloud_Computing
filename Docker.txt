@@ -1,0 +1,487 @@
+
+
+
+
+===============================================================================
+ 
+ Docker ---> mvsrkri007@gmail.com // (ID) ramakrishnamunukutla  // (Pass) 521191ramak
+
+
+=====================================================================
+
+ Docker :=   // Platform To run && manage applications Inside Container.
+~~~~~~~~~~   // lightweight virtualization && Uses Less Memory.
+
+ --- It is a platform for developers and sys admins to build, share, and run applications with containers. 
+ --- Docker was firstly released in March 2013. 
+ --- It is used in the Deployment stage of the software development life cycle.
+ --- Docker uses container on the host's operating system to run applications.
+ --- Docker includes components such as Docker-client,  Docker-server, 
+                                        Docker-machine, Docker-hub,   Docker-composes, etc
+
+-> Every application contains several components
+
+	1) Presentation components
+	2) Business Components
+	3) Persistent Components
+	4) Database 
+	5) Server
+	
+-> In order to run our application we need to setup environment
+
+	1) We shud have operating system
+	2) We shud have JEE server setup
+	3) We shuld have database setup
+
+Docker
+------
+-> Docker is a containerization platform
+
+-> It is used to package our application in the form of container
+
+-> Docker containers can easily transfer to multiple computer
+
+-> Docker software is having ship logo
+
+-> Docker Container make sure our application works in all environments like Dev or Test or Prod
+
+
+Before Docker , People used to work with VM's
+----------------------------------------------
+
+Docker Architecture
+--------------------
+1) Docker File 
+
+2) Docker Image
+
+3) Docker Hub
+
+4) Docker Container
+
+
+-> We will write Docker file with configuration
+
+-> Based on docker file we will create docker image
+
+-> Docker images will be store in docker hub
+
+-> Using Docker image, we will create docker container
+
+-> Docker container can easily run in any computer
+
+
+Note: If someone already created docker image, we can pull it and we can use it.
+
+Docker Setup
+------------
+-> Create Account in Docker Hub
+
+-> Install Docker CLI (OS based)
+
+-> Open CMD and execute below command
+
+	docker -v
+
+-> It will display docker version
+
+-> Start Docker Engine (Windows -> Docker Desktop -> Run it)
+
+**********************Once Docker Engine is started execute cmds*********
+
+=============================Docker Commands=====================
+
+docker -v : To check docker version
+
+docker info : To get info about docker
+
+docker login : To login into docker hub account
+
+docker images : To check all docker images
+
+docker pull <image-id> : To pull docker image from docker hub
+
+docker run <image-id> : To run docker image
+
+Note: When we use docker run <image-id>, if image not available locally it downloads from docker hub and it runs that
+
+----------------------Run hello-world image------------------
+Syntax : docker run hello-world  ====> It will display welcome msg
+
+
+Creating Docker Images & Running Docker Images
+----------------------------------------------
+
+docker build -t <image-name> . : To build docker image using Dockerfile
+
+	Ex : docker build -t his-app .
+
+Note : After building check all images using docker images using below command
+
+	Ex : docker images
+
+docker run -p OS-HOST-PORT:APP-SERVER-PORT <image-name> : To run docker image
+
+	Ex : docker run -p 5000:5555 spring-boot-rest-api
+
+docker run -d -p OS-HOST-PORT:APP-SERVER-PORT <image-name> : To run docker image in background (detached mode)
+
+Ex : docker run -d -p 9091:9090 sb-ms-docker-app
+
+docker tag image-name username/repository:tag : To tag an image
+
+Ex : docker tag spring-boot-rest-api user-id/spring-boot-rest-api:latest
+
+docker push username/image : To push docker image to docker hub
+
+docker rmi <image-id> : To remove docker image
+
+docker run <image-name> : To run docker image
+--------------------------------------------------------------------
+
+Dockerizing SpringBoot Application
+----------------------------------
+1) Create SpringBoot Application In IDE
+
+2) Create Dockerfile in Project 
+
+-----------------dockerFile-------------------------------------------
+FROM java:8-jdk-alpine
+
+COPY ./target/spring-boot-docker-app.jar /usr/app/
+
+WORKDIR /usr/app
+
+RUN sh -c 'touch spring-boot-docker-app.jar'
+
+ENTRYPOINT ["java","-jar","spring-boot-docker-app.jar"]
+--------------------------------------------------------
+
+3) Create Rest Controller and write required methods
+
+4) Package Your Project using Maven package goal (jar should be created in target folder)
+
+5) Check project jar file name is matching with jar name mentioned in dockerFile
+
+6) Build Docker image using Dockerfile
+
+   Syntax : docker build -t image-name .
+
+7) Check Docker image created or not
+
+    Syntax : docker images
+
+8) Run Docker image which is created above
+
+    Syntax : docker run -p windows-port:app-server-port image-name
+
+9) Access application using URL
+
+    syntax : http://localhost:windows-port/url-pattern
+
+
+===================================================================================
+
+ Containers := // Apps Runs in it.
+~~~~~~~~~~~~~~
+ --- It is Virtual-OS that  makes Our-Apps(in Image-format) i.e Executable-File) Platform-Independent.
+ --- Used to deploy applications is called containerization. 
+ 
+ --- Containers are not new, but their use for easily deploying applications is.
+ --- Containers ensure that our application works in any environment like development, test, or production.
+ --- To develop applications easily, ship them into containers, and can be deployed anywhere.
+ 
+ --- Allows Developers to package up the application with all its libraries and dependencies, and ship it as a single package. 
+ --- The advantage is you don't need to allocate any RAM and disk space for the applications. 
+ --- It automatically generates storage and space according to the application requirement.
+ 
+ --- Docker-Container is the instantiation of Docker-Image.
+ --- Docker-Image is a set of files which has no state
+
+===================================================================================
+
+ VirtualMachine := // slow and costly.
+~~~~~~~~~~~~~~~~~ 
+ --- It Allows us to install and use other Operating-systems (Windows, Linux, and Debian) simultaneously on One-Machine.
+
+               
+	   OS ---> VM ---> V-OS ---> Docker ---> (Having)Container ---> (Having)Docker-Image // (Here ---> Means "-INSTALL-")
+
+
+===================================================================================
+
+----> Docker Client has an ability to communicate with more than one Docker-server (Docker-daemon) using REst-API.
+
+
+
+
+=====================================================================================
+
+ Steps := --- Create One-Image (of-DB's-Code-Servers), Convert into Container && Push to Docker-Hub(Repo).
+~~~~~~~~  --- Access(Push/Pull) the Docker-Hub using Virtual-OS from System-OS.
+
+
+(Q) use of Docker?
+(A) Docker offers a container environment which can be used to host any application.
+    This software application and the dependencies that support it which are tightly-packaged together.
+
+
+ Commands :=
+~~~~~~~~~~~
+  docker run hello-world   
+  docker -version  
+  
+  docker build -t java-app .     
+  docker run java-app  
+  
+  docker tag image-name username/image-name 
+  docker push  username/image-name 
+  
+  docker build -t image-name docker-file-location  
+  docker run -d image-name  
+  
+  docker images  
+  docker ps -l  
+  docker ps -a  
+  
+  docker stop container_id  
+  
+  docker rmi image-name  
+  docker rmi $(docker images -q)  
+  
+  docker rm $(docker ps -a -q)  
+  docker exec -it container-id bash 
+  
+  docker login  ( Un && Pw)
+  
+  docker run -it --rm ramakrishnamunukutla/cheers2019
+  
+  cd D:/bootworkspace_sts4_cloud_2.1.6/SpringBootaTestApp
+  
+  docker build -f Dockerfile -t springboot-dockerapp
+  
+  docker run -p 9090:8080 springboot-dockerapp
+  
+  
+ Format to create tag name  :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ docker tag <imageName> <username>/<repoName>:<tagname>
+ docker tag springboot-dockerapp javabyraghu/mytestrepo:latest
+
+
+ PUSH IMAGE INTO DOCKER HUB :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  docker push <username>/<repoName>:<tagname> 
+  docker push javabyraghu/mytestrepo:latest
+
+
+ 			   Date : 10/08/2020
+			Spring Boot using Docker
+			      Mr. RAGHU
+	-------------------------------------------------------------
+FB    : https://www.facebook.com/groups/thejavatemple/
+Email : javabyraghu@gmail.com
+
+			Develop-> Build     -> Deploy
+			 Code  -> .jar/.war -> Place in Server and Run 
+
+Deployment: It is a process of setting all required s/w and starting application under
+             one runtime Environment.
+=> Runtime Environment is Operating System(OS)/Platform Dependent.
+   It means Softwares Required to run our application are fully OS Dependent.
+   Ex: Java S/w, Server Tomcat, Database MySQL...etc
+
+=> Our application is working fine in DevMachine(ex: Platform is Windows), may or may not 
+   work properly in other Platform (ex: Linux, Mac..etc).
+
+=> So, Solution is : DO NOT RUN OUR APPLICATION/SERVICES on Direct OS (Win/Linux/Mac..)
+   Use Virtual Platform that supports to run application any where
+   (no version or no installer modification required).
+
+=> Above Virtual Platform concept if we use, then What exactly running in Our Dev Machine
+   will same work in QA, UAT, Production (even Cloud AWS,PCF,..etc).
+
+**** Docker : 
+-> Platform (Virtual OS)
+-> It makes our Application/Services makes OS independent.
+-> Our Application/Services must present in Image Format.
+-> Here Image/Docker Image is like Exectable file for a Docker OS.
+
+=> Code/JAR      -> Image
+   Tomcat Server -> Image
+   MySQL Server  -> Image
+   
+=> Docker Container - Executing all required Images in Docker, then one runtime setup is
+                      created which is called as Container.
+
+
+=> Once Docker Image is created then we are going to place our image inside DockerHub
+   (hub.docker.com) by using ACTIONS like PUSH and PULL.
+
+-----------Working with-----------------------------------------------------------------
+1. Create one Account in DockerHub (Register and Login)
+   https://hub.docker.com/
+
+2. Write one Spring Boot Application
+
+3. Create Docker File in our application
+
+4. Download and Install Docker S/w in our System
+
+5. Start Docker s/w and run docker commands
+  a. Creating Docker Images
+  b. Check other images
+  c. Run image as Container
+  d. Login to DockerHub
+  e. PUSH or PULL with DockerHub
+  f. logout
+
+6. Stop Docker Server.
+
+====================================================================
+ 
+ Deploy SpringBoot in Docker :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+b) Spring Boot Application
+
+1. Use STS and create one Starter Project
+2. Write some code (Ex: RestController)
+3. Build (.jar/.war) 
+  > Right click on Project > Run as Maven Clean
+  > Right click on Project > Run as Maven Install
+  > Right click on Project > Refresh
+
+4. Under target folder, we can find our project jar/war
+
+*)Note:- To run executable jar, command is:
+cmd> java -jar  <FileName>.jar
+cmd> java -jar  SpringBootDockerTest-1.0.jar
+
+--------------------------------------
+c) Create one Dockerfile 
+
+> Right click on project > new > File
+> Enter file name : Dockerfile
+> Enter details
+
+#FROM <image>
+FROM openjdk:8
+# Temp Run location
+VOLUME /tmp
+# Provide Port Information
+EXPOSE 8080
+#Jar Location to mapping name
+ADD target/SpringBootDockerTest-1.0.jar SpringBootDockerTest-1.0.jar
+#Jar Execution command
+ENTRYPOINT ["java","-jar","/SpringBootDockerTest-1.0.jar"]
+
+---------------------------------------------------
+d) Download and Install Docker Toolbox 
+
+1. Download Link
+ https://github.com/docker/toolbox/releases /// C:\Users\DELL\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Docker
+   
+2. click on:  DockerToolbox-19.03.1.exe
+3. Install
+4. Double click on : 'Docker Quickstart Terminal' to start
+
+------------------------------------
+e) Docker Commands
+1. Change Location to Project folder
+
+$ cd F:/SpringBoot_Tasks/SpringBootDockerTest
+
+2. Create Docker image
+
+$ docker build -f Dockerfile -t <tagName> <location>
+$ docker build -f Dockerfile -t springbootbockertest .
+
+Tage created successfully : <imageName>:<tagVersion>
+ex:                         springbootbockertest:latest
+
+3. Check existed images
+$ docker image ls
+
+4. ** Run image
+$ docker run -p <maskedPort>:<actualPort> image
+$ docker run -p 9090:8080 springbootbockertest
+
+5. Check using browser
+http://<dockerIP>:<PORT>/Path
+http://192.168.99.100:9090/show
+
+---------------------------------------
+f) Dockerhub push/pull
+
+1. Login to Docker account
+
+$ docker login
+Username:
+Password:
+Login Succeeded
+
+
+2. Create a tag , that link our local file and Remote Repository
+
+  $ docker tag <image>  <username>/<repository>:<tagName>
+  $ docker tag springbootbockertest javabyraghu/nitrepotest:latest
+
+
+3. Puh into Dockerhub
+  
+  $ docker push <username>/<repository>:<tagName>
+  $ docker push javabyraghu/nitrepotest:latest
+
+4. pull existed image from docker to local
+  
+  $ docker pull <username>/<repository>:<tagName>
+  $ docker pull javabyraghu/mytestrepo:latest
+
+5. logout from dockerhub
+
+  $ docker logout
+  $ docker exist
+
+===================================================================================
+
+ SpringBoot with Docker :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+  https://www.youtube.com/watch?v=J0U-e5K4faU&list=PLn2GH4dN5i2BjapGeQ8mkuu2SklDMpsx1&index=12&ab_channel=PlayJava
+  
+  
+ SpringBoot with Kubernates :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
+  https://www.youtube.com/watch?v=SzbeDqBSRkc&list=PLn2GH4dN5i2BjapGeQ8mkuu2SklDMpsx1&index=13&ab_channel=PlayJava
+
+
+==================================================================================================
+
+ DockerFileDirectives :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+      FROM
+	  ENV  ----> Sets Environment Variables 
+      RUN  ----> Creates new Layer on top of Previous Layer. 
+	  
+	  CMD ----->> Used to run Container at Execution time 
+	  COPY ----> Copy files form Local Machine to Image  
+      HEALTHCHECK----> To Perform Health Check to Container.   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+
+ 
+ 
+    JENKINS(-YOUTUBE-) -----> ASHOK-IT , Almighty Java 
+
+==============================================================================================
+
+    Change-Port(In-Path) ----> java -jar jenkins.war --httpPort == 9898
+	
+	  Credentials -----> rama /// rama  // http://localhost:9595/
+	  
+    linux
+    git
+    jenkins
+    docker
+    maven/ansible
+    kubernetes
+
+====================================================================================
+
+ Contionious-Integration (CI) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Used When the Developer made changes in repositary, then Updated Source-code is deployed in Server.
+ 
+ 
+ CI-WorkFlow :=
+~~~~~~~~~~~~~~
+          Integrate ----> Build ----> Test ----> Deploy. 
+		   
+ Contionious-Testing-Tool    ----> Selenium
+ Contionious-Management-Tool ----> Puppet
+ Contionious-Deployment-Tool ----> Ansible
+ Contionious-Monitoring Tool ----> Nagious
+  
+
+  WithGIT  := // Source-Code-Management(SCM)
+~~~~~~~~~~~~
+
+(1)
+---- Mange-Jenkins ----> Global Tool Configuration ---->  Paste Java_Path && give name //
+ 
+(2)
+--- New-Item ----> Free-Style-Project 
+
+(3)
+----> Description 
+      
+     ---> (Paste) Git-Project	  
+     ---> SCM ( GIT --> Link-paste && (Click) 'credentials'S "ADD" ' && give UN,Pw,Id,Use) &&
+		        
+      				In-'Credentials '(Click) on 'Your-name'   
+		
+     ---> BUILD-TRIGGER ( Pol-SCM [5-Stars] )
+	 ---> BUILD-ENVIRONMENT [(Click) Delete workspace before build starts ]
+	 ---> BUILD ( (Click)Invoke Top-Level Maven targets && Goals --> clean compile test package )
+	 ---> POST-BUILD ACTIONS 
+
+ (4) 
+----> clean  --- To Deletes target File-Folder && 
+     compile --- To Compiles Java Files
+	  test   --- To Executes Junit-Classes
+	 package --- To Create WAR-File for Project.
+
+
+====================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
