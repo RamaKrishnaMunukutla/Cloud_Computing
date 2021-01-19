@@ -1,6 +1,8 @@
 
 
 
+   .....TypeOfServices
+
    .....ComputerServices.........EC2Details........
    
     ....StorageServices.......DataBaseServices.....NetworkServices
@@ -12,7 +14,7 @@
 
    https://aws.amazon.com/console/  ///mvsrkri007 /// Amazon910@#
 
-  
+  https://www.nareshit.com/aws-online-training/
   
   
   Bucket (S3) ----> bucketDemo
@@ -28,12 +30,18 @@
                      Private (Dell, Siemens) , 
 					 Hybrid (Public + Private)
 					 
- Type of Services :=
+ TypeOfServices :=
 ~~~~~~~~~~~~~~~~~~
  
  (a) Iaas ---> Upto OS-Level
  (b) Paas ---> Upto Installed-Sotware RunTime_Level 
  (c) Saas ----> (Ready) 
+ 
+ VM Based Model Deploy :=
+~~~~~~~~~~~~~~~~~~~~~~~
+  Ansible // Puppte // Cheft 
+ 
+===============================================================================================================
  
  ComputerServices :=
 ~~~~~~~~~~~~~~~~~~~~
@@ -43,8 +51,11 @@
 	       (4) Elastic-Load-Balancer (ELB) ,      (5) Elastic-Bean-Stack (EBS) 
    
    
-  (1) EC2 := Used to Rent 'VM' && Resize the Compute-Capacity
-     ~~~~~
+ (1) EC2 := 
+~~~~~~~~~~~
+ --- Used to Rent 'VM' && Resize the Compute-Capacity
+ --- Billing Based on 'HOURLY' Service-Usage. (***)
+	 
  
   EC2 (Elastic Cloud EC2Details) := has AMI (Amazon machine Image) to launch the instance of Operating System. 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -71,7 +82,12 @@
 
  (2) Lambda (ServerLess Compute Service ):= Used to execute code for Specific-Application. 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   
+ --- These are building-Blocks used to deploy application in cloud. 
+ --- Billing Based on '100-MilliSeonds' Service-Usage. (**Unlike Runs on 'HOUR' Basis **)
+ --- Works on Trigger-Based (Data Inserted), which should be processed by 'AWS-Lambda' Having "Function" 
+ 
+      Function ---> Having Executable Logic-Of-Email that will Sends to End-User. 
+ 
    
 =======================================================================================================================
 
@@ -125,12 +141,13 @@
  
 =======================================================================================================================
 
- DeveloperTools :=   
-~~~~~~~~~~~~~~~~~
+ DeveloperTools (AWS-DevOps-Tools) :=   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- Used to Build, deploy and Run application Source-Code Automatically. 
  --- Also updates Server and Instance Workload. 
   
-  (1) CoseStar  (2) Code-Build  (3) Code-Deploy  (4) Code-PipeLine 
+  (1) Code-Star  (2) Code-Build  (3) Code-Deploy  (4) Code-PipeLine 
+ 
 
  (1) CoseStar :=
 ~~~~~~~~~~~~~~~
