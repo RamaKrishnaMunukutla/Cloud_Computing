@@ -1,15 +1,32 @@
 
 
 
+   KubernatesCommands......
+
+===================================================================================================================
+
+   Hands-On ----> Edureka (7 Hrs --- 4:21:00)
 
 
-================================================================
+===================================================================================================================
 
- Kubernates :=
-~~~~~~~~~~~~
+ Drawbacks of Docker-Conatiners :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Docker-Containers are not easily Scalable. /// Auto-Scaling not Possible. 
+ --- They Could not comunicate with each Other. 
+ --- Distributed-Traffic is Challenging. 
+
+ Docker-Swarm :=
+~~~~~~~~~~~~~~~~
+ --- Installation is easy && Scaling-Up is Faster, but Cluster-Strength is Weak when Compared to Kubernates.
+ --- Logging && Monitoring  are done through 3rd Party-Tool.
+ 
+ 
+ Kubernates (2015) :=    // Container-Management Platform 
+~~~~~~~~~~~~~~~~~~~~
  --- It is an open-source platform developed by Google. 
  --- It offers powerful, useful, and scalable tools for managing, deploying complicated containerized applications.
- --- The advantage of using Kubernetes is that it provides the best solution for scaling up the containers.
+ --- The advantage of using Kubernetes is that it provides the best solution for "SCALING-UP" the containers.
  --- It is an Ecosystem for managing a cluster of Docker containers.
 
 ----> Used to Manage Docker (Container) (*************)
@@ -17,11 +34,51 @@
 ----> Kubernates Master having different Kubernates Nodes. 
 ----> Container are always enclosed in POD in Kubernates. 
 
+----> It has GUI /// Has In-built Logging && Monitoring    
+----> Famous than Docker-Swarm 
 
+
+  Kubernates Architectrue :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Nodes ----> Host the Containers in Separate PODS
+
+   PODS -----> ogical Collection of Containers which need to Interact with each Other for an Application.  
+
+
+          [C1] [C2]      [C3] [C4]      [C5] [C6]
+             PODS           PODS            PODS
+			  
+			      Kubernates-Architectrue		         
   
 ================================================================================================================ 
+ 
+ KubernatesCommands (Power-Shell) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Check       ----> kubectl 
+ Container-Name ----> kubectl config current-context
   
-  
+     Nodes -----------> kubectl get nodes
+     Pods ------------> kubectl get pods
+   deployments--------> kubectl get deployments
+   
+   Create Service Account ------------------> kubectl create serviceaccount dashboard -n default 
+     Create-Deployment ---------------------> kubectl create deployment nginx --image-nginx
+  Create Service Account on Nodes ----------> kubectl create service nodeport nginx --tcp=80:80
+	 
+   Status of Pods ---------------> kubectl get pods --all-namespaces
+   Detailed Status of Pods-------> kubectl get --all-namespaces -o wide
+                      
+    Verify Deployment  -------->  kubectl get deployment
+  Details about Deployment ---->  kubectl describe deployment nginx 
+      Delete Deployment ------->  kubectl delete deployment <name>
+					  
+  To Chek which deployment is Running on Which Node ----> kubectl get svc
+     kubectl create service nodeport 
+
+
+
+
 ================================================================================================================ 
   
   

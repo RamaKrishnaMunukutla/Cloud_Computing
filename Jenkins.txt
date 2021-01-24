@@ -1,13 +1,13 @@
 
  
  
-    JENKINS(-YOUTUBE-) -----> ASHOK-IT , Almighty Java 
+    JENKINS(-YOUTUBE-) -----> ASHOK-IT , Almighty Java , JavaTechie, TechPrimers
 
 ==============================================================================================
 
-    Change-Port(In-Path) ----> java -jar jenkins.war --httpPort == 9898
+    Change-Port(In-Path) ----> java -jar jenkins.war --httpPort=9898
 	
-	  Credentials -----> rama /// rama  // http://localhost:9595/
+	  Credentials -----> rama /// rama  // http://localhost:9898/
 	  
     linux
     git
@@ -18,6 +18,25 @@
 
 ==========================================================================================================
  
+  Jenkins880 := ( GIT ----> Jenkins ----> SeleniumServer ----> ProductionServer )
+~~~~~~~~~~~~
+--->Jenkins server finds the changes that have occurred GIT. Jenkins will draw those changes  Builds Regularly.
+--->If built is successful, then Jenkins server deploys the built in the test server.
+--->After testing, Jenkins server generates a feedback and then notifies the developers about the build and test results.
+--->Repeat Above steps....
+ 
+ 
+---->Jenkins follows Master-Slave architecture to manage distributed builds. In this architecture, slave and master communicate through TCP/IP protocol.
+
+
+ Continious-Integration UseCase :=  /// Developer can have Continious FeedBack of Application Performance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- For every COMMIT to the Source-Code, an auto-Build is triggered and is automatically (Build ---> Test && -->) deployed
+         on Test Server in Jenkins. 
+ --- By Above Step, Developer can detect BUG by looking at RECENT-COMMIT that was done to Source-Code. 
+
+
+
  Continious-Build :=
 ~~~~~~~~~~~~~~~~~~~~
  --- It Compiles, validate, Code-Review, Unit-Test and and Integrating-Testing 

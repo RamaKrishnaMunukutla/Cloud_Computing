@@ -16,6 +16,8 @@
 
   https://www.nareshit.com/aws-online-training/
   
+  http://www.dot.tk/en/index.html?lang=en
+  
   
   Bucket (S3) ----> bucketDemo
 
@@ -33,13 +35,40 @@
  TypeOfServices :=
 ~~~~~~~~~~~~~~~~~~
  
- (a) Iaas ---> Upto OS-Level
- (b) Paas ---> Upto Installed-Sotware RunTime_Level 
- (c) Saas ----> (Ready) 
+ (a) Iaas ---> Provides Upto OS-Level                           /// Pizza Making at Home 
+ (b) Paas ---> Provides Upto Installed-Sotware RunTime_Level   /// Pizza going @ Hotel && Eat 
+ (c) Saas ----> (Ready)                                       /// Pizza Home Delivery && Eat   
+ 
  
  VM Based Model Deploy :=
 ~~~~~~~~~~~~~~~~~~~~~~~
   Ansible // Puppte // Cheft 
+  
+  
+ Types of Deployment-Model :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Public Cloud  //// Private Cloud //// Hybrid Cloud
+
+
+ Web Hosting Platforms(has PAAS) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   OPen Shift /// Google-As-Engine ///  EBS /// Azure-App-Service
+   
+	
+ Types of Cloud-Provider  :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 	AWS ///  Microsoft-Azure  ///  IBM Cloud  //// Google Cloud Platform (GCP)  
+	
+	
+ Advantages of AWS :=  [Pay-As-You-Go Model]
+~~~~~~~~~~~~~~~~~~~~ 
+  Flexibility ///  Scalability //// Cost-Effective  //// Security 
+  
+  
+ AWS Global Infrs-Structure :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Regions /// Availability-Zones 
+   
  
 ===============================================================================================================
  
@@ -47,12 +76,12 @@
 ~~~~~~~~~~~~~~~~~~~~
  --- Used to Build , Deploy && Scale an application in Cloud-Platform. 
 
-    Eg :=  (1) EC2, (2) Lambda,                   (3) Elastic-Conatiner-Service (ECS) , 
-	       (4) Elastic-Load-Balancer (ELB) ,      (5) Elastic-Bean-Stack (EBS) 
+    Eg :=  (1) EC2 (***)   (2) AWS-Lambda (***)      (3) Elastic-Conatiner-Service (ECS) , 
+	       (4) Elastic-Load-Balancer (ELB) ,         (5) Elastic-Bean-Stack (EBS)  (***) 
    
    
- (1) EC2 := 
-~~~~~~~~~~~
+ (1) EC2 Instance :=   //// virtual server in the cloud.  
+~~~~~~~~~~~~~~~~~~ 
  --- Used to Rent 'VM' && Resize the Compute-Capacity
  --- Billing Based on 'HOURLY' Service-Usage. (***)
 	 
@@ -65,7 +94,14 @@
     (a) Public-Key ----> Remote Machine  /// 2048-bit SSH-2 RSA keys ( Cannot Decrypt which is Encrypted ) 
 	                     Can Create 5000 Keys Per Region 
 	
-	(b) Private-Key ---> Client Machine  /// Used to communicate with Remote Machine 
+	(b) Private-Key ---> Client Machine  /// Used to communicate with Remote Machine
+
+
+ AMIs :=  Creates Images for that Particular EC2-Instance 
+~~~~~~ 
+
+ Volumes := Back-Stories attched to EC2-Instance. 
+~~~~~~~~~~
  
 
  EC2 Instance Creation :=
@@ -80,11 +116,13 @@
  
 ========================================
 
- (2) Lambda (ServerLess Compute Service ):= Used to execute code for Specific-Application. 
+ (2) AWS-Lambda (ServerLess Compute Service ):= Used to execute code for Specific-Application. 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- These are building-Blocks used to deploy application in cloud. 
  --- Billing Based on '100-MilliSeonds' Service-Usage. (**Unlike Runs on 'HOUR' Basis **)
  --- Works on Trigger-Based (Data Inserted), which should be processed by 'AWS-Lambda' Having "Function" 
+ 
+ --- Only used to Executes background Tasks. (***********)
  
       Function ---> Having Executable Logic-Of-Email that will Sends to End-User. 
  
@@ -98,10 +136,49 @@
   Eg :=  (1) S3  (2) EBS  (3) StorageGateWay 
 
 
- (1) S3 :=
-~~~~~~~~~~
+ (1) S3-Bucket :=  /// Invokes AWS-Lambda
+~~~~~~~~~~~~~~~~
  --- Open Cloud-Based Storage Service used for Online-Data Backup (Stores Files && Objects) . 
+ 
+ Eg :=  S3-Bucket will be Processed by AWS-Lambda, which inturn (Sends Email with all-Details) 
+~~~~~~
+ --- Need to Configure (a) SQS (Simple-Queue-Service) && 
+                       (b) SES (Simple-Email-Service)
+  
+ 
+   SQS ------ hellolambda
+   SES ------
+  lambda ---- myFunction
+	 s3 ----- edureka-demo
+  route-53 -- edureka.tk 
 
+==========================================
+
+ (2) Elastic Bean Stack (EBS):=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is a PAAS-Service used for  deploying && Scaling Web-Apps(Java, Dot-Net) && Services. 
+ --- It creates Dedicated Separate-FOLDER (Contains all data)  when Web-App is deployed in it.
+ --- Maintains App-Versions 
+ 
+ 
+  Elastic Load Balancer :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Distributes the Traffic-load to different EC2-Instances
+ 
+ 
+  Web Server Environment :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Bean Stalk Environment /// ELB  /// AutoScaling-Group /// EC2-Instances //// Host-Manager /// Security-Groups 
+ 
+ 
+ Workers Environment  :=
+~~~~~~~~~~~~~~~~~~~~~~
+ --- Web-Server forward request to it when the Request is Consuming lot of Resources, which causes Denying Other-Requests. 
+ --- This may leads to Perofrmance && Request-Handle Capacity of Web-Server decreases. 
+ --- Defined as Process that handles background tasks during Time-ITENSIVE-Operation. 
+ --- Used to (a) Email Notification
+             (b) Generates Reports 
+             (c) Clean Up Databases. 			 
 
 =======================================================================================================================
 
@@ -128,6 +205,7 @@
  --- Connects Physical Network to Private VN with high transfer Speed. 
  
    Eg :=  (1) VPC  (2) Route-53  (3) Direct-Connect  (4) Cloud-Front
+ 
  
  (1) VPC :=
 ~~~~~~~~~
@@ -242,7 +320,40 @@
 =======================================================================================================================
 
 
-
+  
+================================================================================================================ 
+  
+  
+================================================================================================================ 
+  
+  
+================================================================================================================   
+  
+  
+================================================================================================================ 
+    
+  
+================================================================================================================ 
+  
+  
+================================================================================================================
+ 
+  
+================================================================================================================ 
+  
+  
+================================================================================================================
+ 
+  
+================================================================================================================ 
+  
+  
+================================================================================================================
+ 
+  
+================================================================================================================ 
+  
+  
 
 
 
