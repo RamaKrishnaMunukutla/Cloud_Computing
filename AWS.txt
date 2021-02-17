@@ -7,7 +7,9 @@
    
     ....StorageServices.......DataBaseServices.....NetworkServices
 
-   .....DeveloperTools........SecurityIdentityAndCompilanceService  
+   .....DeveloperTools........SecurityIdentityAndCompilanceService..........AWSCloudFront 
+
+   ....MonitoringAndManagement   
    
 
 ==============================================================================================================
@@ -20,6 +22,8 @@
   
   
   Bucket (S3) ----> bucketDemo
+  
+    YouTube ----> Java-Techie /// Tech-Primers 
 
 
 ===============================================================================================================
@@ -52,7 +56,7 @@
 
  Web Hosting Platforms(has PAAS) :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   OPen Shift /// Google-As-Engine ///  EBS /// Azure-App-Service
+   OPen Shift (Red-Shift)  /// Google-As-Engine ///  EBS /// Azure-App-Service
    
 	
  Types of Cloud-Provider  :=
@@ -72,12 +76,16 @@
  
 ===============================================================================================================
  
- ComputerServices :=
+ ComputerServices :=  
 ~~~~~~~~~~~~~~~~~~~~
  --- Used to Build , Deploy && Scale an application in Cloud-Platform. 
+ --- REMOTE-DESKTOP-CONNECTION  (Default-App in Comp)  //// PUTTY (Connect EC2-Instance with Local-Machine)
+ ---    VOLUMES (Attach && Detach) && SNAP-SHOTS 
 
     Eg :=  (1) EC2 (***)   (2) AWS-Lambda (***)      (3) Elastic-Conatiner-Service (ECS) , 
 	       (4) Elastic-Load-Balancer (ELB) ,         (5) Elastic-Bean-Stack (EBS)  (***) 
+		   
+	
    
    
  (1) EC2 Instance :=   //// virtual server in the cloud.  
@@ -114,7 +122,7 @@
  --- To Connect to any Machine Using SSH .
  --- Converst Downloaded Private Key to PPK Format using PuTTY-Gen , Load-file to Under SSH/OATH Section . 
  
-========================================
+=================================
 
  (2) AWS-Lambda (ServerLess Compute Service ):= Used to execute code for Specific-Application. 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -125,6 +133,20 @@
  --- Only used to Executes background Tasks. (***********)
  
       Function ---> Having Executable Logic-Of-Email that will Sends to End-User. 
+	  
+==============================
+
+ (5) Elastic-Bean-Stack (EBS) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is a PAAS-Service used for  deploying && Scaling Web-Apps(Java, Dot-Net) && Services. 
+ --- It creates Dedicated Separate-FOLDER (Contains all data)  when Web-App is deployed in it.
+ --- Maintains App-Versions 
+ --- It is a Paas Service used for deploying and Scaling Web applications (Java, Dot-Net) into Servers (Tomcat, NgiNx,ISS) 
+ --- Using this, we can Easily Deploy Apps && Supports Auto-Scaling Feature 
+ --- Shows Environment-Health based on Colors . 
+ 
+ 
+ 
  
    
 =======================================================================================================================
@@ -133,12 +155,27 @@
 ~~~~~~~~~~~~~~~~~
  --- Stores Data && Advantage is to Disaster-Data recovery with High durability. 
 
-  Eg :=  (1) S3  (2) EBS  (3) StorageGateWay 
+  Eg :=  (1) S3  (2) EFS   (3) StorageGateWay  (4) AWS-BackUp
 
 
  (1) S3-Bucket :=  /// Invokes AWS-Lambda
 ~~~~~~~~~~~~~~~~
  --- Open Cloud-Based Storage Service used for Online-Data Backup (Stores Files && Objects) . 
+ --- (Versioning) It can have Multiple-Version of Object in One-Bucket.  (Can delete it)
+ --- By Default Versioning is Disabled. 
+ --- It has 3 Storage-Classes (a) Standard  
+                              (b) Infrequent-Access 
+							  (c) Glacier
+					
+					
+ Cross Region Replication :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Enables Automatic && Asynchronous copying of Object Across the Bucket in different AWS Regions. 
+ --- MOVE-Buckets configured here can be Owned by the AWS account (Or) Different account .
+ 
+ Bucket Policy := Protects Data in Bucket. 
+~~~~~~~~~~~~~~~~
+ 
  
  Eg :=  S3-Bucket will be Processed by AWS-Lambda, which inturn (Sends Email with all-Details) 
 ~~~~~~
@@ -154,14 +191,7 @@
 
 ==========================================
 
- (2) Elastic Bean Stack (EBS):=
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- --- It is a PAAS-Service used for  deploying && Scaling Web-Apps(Java, Dot-Net) && Services. 
- --- It creates Dedicated Separate-FOLDER (Contains all data)  when Web-App is deployed in it.
- --- Maintains App-Versions 
- 
- 
-  Elastic Load Balancer :=
+   Elastic Load Balancer :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- Distributes the Traffic-load to different EC2-Instances
  
@@ -185,9 +215,25 @@
  DataBaseServices :=  
 ~~~~~~~~~~~~~~~~~~~
  ---  Cost-Efficient , High-Secure && Scalable  database Instances in Cloud. 
+ 
+   Eg :=  (1) RDS  (2) DynamoDB  (3) Elastic-Cache  (4) Amazon-Redshift 
+ 
+ 
+ Advantages of cloud database :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  Eg :=  (1) RDS  (2) DynamoDB  (3) Elastic-Cache  (4) Amazon-Redshift 
+ (1) Lower costs
+~~~~~~~~~~~~~~~~~~
+ --- Generally, company provider does not have to invest in databases. It can maintain and support one or more data centers.
 
+ (2) Automated
+~~~~~~~~~~~~~~~~~~
+ --- Cloud databases are enriched with a variety of automated processes such as recovery, failover, and auto-scaling.
+
+ (3) Increased accessibility
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- You can access your cloud-based database from any location, anytime. All you need is just an internet connection.
+ 
 
  (1) RDS :=  It is RDBMS
 ~~~~~~~~~~~
@@ -202,6 +248,7 @@
  
  NetworkServices :=
 ~~~~~~~~~~~~~~~~~~~
+ --- It is Virtual Network where we can launch in AWS resources. 
  --- Connects Physical Network to Private VN with high transfer Speed. 
  
    Eg :=  (1) VPC  (2) Route-53  (3) Direct-Connect  (4) Cloud-Front
@@ -215,7 +262,18 @@
  (2) Route-53 :=
 ~~~~~~~~~~~~~~~~~
  --- It is High Available DNS that helps user to Route by tranaslating text to IP Address.  
- 
+
+
+     Dynamic DNS :=
+	~~~~~~~~~~~~~~
+           --- Assigns Custom Domain Name to IP_Address. 
+		   --- Domain Name automatically updated when IP_Address Changes.
+
+
+ (3) Direct-Connect :=
+~~~~~~~~~~~~~~~~~~~~~
+ --- It is direct connect to AWS Infra-Structure.  
+
  
 =======================================================================================================================
 
@@ -243,11 +301,96 @@
 
 =======================================================================================================================\
 
+ AWSCloudFront :=    /// Caches Data 
+~~~~~~~~~~~~~~~~~~
+ --- It is WEB-SERVICE that speed-Up distributing of Static && Dynamic Web-Content like (.html, .css. .js , Images) to users. 
+ --- Delivery makes fast by sitting betwwen User-Request && Server.
+ --- Through  Edge Location  , can able to access daat faster. 
+ 
+                  Routing ---- Edge-Location ---- More Availability 
+				  
+				Request ---- Edge Location --- Server. 
+ 
+=======================================================================================================================
+ 
+ MonitoringAndManagement :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Monitoring Tools used to send notification When-ever Virtual-Servers are not in Much (Less) used. 
+ 
+ 
+ Uses :=
+~~~~~~~ 
+ --- Provide Details report on Performance of Application on Cloud && Reduces the Excess Operative-Cost on Services. 
+ --- Monitors the User Experience && Creates Reports which is used to to Improvement. 
+ 
+      Eg :=  Amazon Cloud Watch , 
+	~~~~~~
+ 
+ 
+ (1) Amazon Cloud Watch :=  /// Basic && Detail Monitoring 
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Monitors AWS-Resources (EC2, ELB, S3, D/b))  && Customer Application Running on AWS Infra-Structure. 
+ --- Monitors && Responses to the Changes happen to AWS-Resources.
+ --- Amazon-Cloud-Watch used to Start && Stops Instances Automatically.  (********)
+
+                                Event --- Rule(Schedule-Time) ---- Target  
+ 
+   Eg := Sends Email (Through SNS-Service) to AWS-Admin Stating that "-- Instance-CPU Utilization is LESS_THAN 25% --" .
+  ~~~~
+                                                               Triggers
+   Eg := EC2(State-Changes) ---> Cloud-Watch(Event Rule-Trigger) ---> Lambda 'f'---> Route-53 (Maps Domain-Name to IP-Address) 
+  ~~~~                                                                   
+                                                              Note := Lambda 'f' Creates / Removes Records in Route-53.
+													         ~~~~~~
+  
+ 
+  
+  Flow (4:22:00) :=
+~~~~~~~~~~~~~~~~~~~
+    (a) IAM   (StartAndStopInstances) :: Assigns Permission to Lambda 'f' to EC-2 Instances. 
+	(b) Lambda (StartAndStopFunction)  ::  Create 'f' && Add Role (Created Recently)
+    (c 
+ 
+  Amazon Cloud Logs :=  /// Event-Viewer (Def) ---> Windows-Logs ---> Systems ---> Has Bunch of Log-Files. 
+~~~~~~~~~~~~~~~~~~~~
+ --- Used to access Log files form EC2 / Route-53  
+ 
+===================================================
+ 
+ (2) Cloud Formation :=
+~~~~~~~~~~~~~~~~~~~~~~
+ --- Set up AWS-Resources so that we can Focus on Application that runbs in AWS. 
+
+===================================================
+
+ Load Balancer :=
+~~~~~~~~~~~~~~~
+
+
+
 
 =======================================================================================================================
 
+ IAM :=
+~~~~~~
 
-=======================================================================================================================
+   Craete Policy :=
+~~~~~~~~~~~~~~~~~~~
+{
+    "Version": "2012-10-17",
+    "Statement": [    
+    {
+     "Effect" : "Allow",
+	 "Action" : ["dynamodb:PutItem"],
+	 "Resource" : ["*"]
+    },
+    {
+     "Effect" : "Allow",
+	 "Action" : ["ssn:Publish"],
+	 "Resource" : ["*"]
+    } 
+   ]
+}
 
 
 =======================================================================================================================
