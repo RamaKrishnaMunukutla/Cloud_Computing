@@ -12,19 +12,15 @@
    ....MonitoringAndManagement   
    
 
+
 ==============================================================================================================
 
    https://aws.amazon.com/console/  ///mvsrkri007 /// Amazon910@#
 
   https://www.nareshit.com/aws-online-training/
   
-  http://www.dot.tk/en/index.html?lang=en
   
-  
-  Bucket (S3) ----> bucketDemo
-  
-    YouTube ----> Java-Techie /// Tech-Primers 
-
+    YOU-TUBE ----> Edureka /// Udemy  /// Java-Techie /// Tech-Primers ///  
 
 ===============================================================================================================
 
@@ -74,7 +70,7 @@
    Regions /// Availability-Zones 
    
  
-===============================================================================================================
+=======================================================================================================================
  
  ComputerServices :=  
 ~~~~~~~~~~~~~~~~~~~~
@@ -88,10 +84,12 @@
 	
    
    
- (1) EC2 Instance :=   //// virtual server in the cloud.  
+ (1) EC2 Instance :=   //// virtual server in the cloud.    /// Cent-OS 
 ~~~~~~~~~~~~~~~~~~ 
  --- Used to Rent 'VM' && Resize the Compute-Capacity
  --- Billing Based on 'HOURLY' Service-Usage. (***)
+ --- Can Install Other Softwares like MySQL , Java-8 in EC-2 Instance. /// Configure Ports also 
+ --- Create IMAGE (Copy // AMI) and Launch wherever you want . 
 	 
  
   EC2 (Elastic Cloud EC2Details) := has AMI (Amazon machine Image) to launch the instance of Operating System. 
@@ -105,12 +103,40 @@
 	(b) Private-Key ---> Client Machine  /// Used to communicate with Remote Machine
 
 
- AMIs :=  Creates Images for that Particular EC2-Instance 
-~~~~~~ 
+ (a)  AMIs :=  Creates Images for that Particular EC2-Instance 
+~~~~~~~~~~~~~ 
 
- Volumes := Back-Stories attched to EC2-Instance. 
-~~~~~~~~~~
+ (b) Volumes := Back-Stories attched to EC2-Instance. 
+~~~~~~~~~~~~~~~
  
+ (c) Elastic-Load-Balancer (ELB) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Will Deploy Our Apps to Multiple Instances to Handle More Incoming Request && Reduce Traffic to Single-Instance 
+ --- Configure Load-Balancer Port && Instance-Port through which it Divert the Incoming request  Traffic   
+ 
+     Health Check :=  Ping-Path ---> Provide URL That will work //// Set TIME-OUT 
+    ~~~~~~~~~~~~~~
+	
+	   DNS_Name ----> Append URL to DNS-URL to Access API in Web Browser
+ 
+ 
+ Three Types :: (a) Application Load Balancer ----  Work with VPC  (Virtual Private Cloud) 
+                (b) Classic Load Balancer     ----  Work with EC2-Instances  
+                (c) Network Load Balancer     ----  Work with VPC 
+				
+
+ (d) Auto Scaling :=
+~~~~~~~~~~~~~~~~~~~~
+ --- Scales UP && Down based by Creting / Removing the EC2-Instances Based on Traffic 
+ --- Can Configure like When My CPU-Utilization is More-Than 60% (Or) Less-Than 50% , Create / Remove Instances (*****)
+ --- This can be done through IMAGES also 
+ 
+               Deleting Auto-Scaling-Group ----> Instances also gets Deleted 
+ 
+         Launch-Configuration -----> 
+		 
+		 
+    
 
  EC2 Instance Creation :=
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -122,11 +148,12 @@
  --- To Connect to any Machine Using SSH .
  --- Converst Downloaded Private Key to PPK Format using PuTTY-Gen , Load-file to Under SSH/OATH Section . 
  
-=================================
+=======================
 
- (2) AWS-Lambda (ServerLess Compute Service ):= Used to execute code for Specific-Application. 
+ (2) AWS-Lambda (ServerLess Compute Service ):=  [ https://github.com/Java-Techie-jt/springboot-aws-lambda ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- These are building-Blocks used to deploy application in cloud. 
+ --- Used to execute code without Server && Pay when SomeOn Used it
  --- Billing Based on '100-MilliSeonds' Service-Usage. (**Unlike Runs on 'HOUR' Basis **)
  --- Works on Trigger-Based (Data Inserted), which should be processed by 'AWS-Lambda' Having "Function" 
  
@@ -134,20 +161,38 @@
  
       Function ---> Having Executable Logic-Of-Email that will Sends to End-User. 
 	  
-==============================
+ 				
+				
+===============================================
 
- (5) Elastic-Bean-Stack (EBS) :=
+ (5) Elastic-Bean-Stack (EBS) := [ https://github.com/Java-Techie-jt/aws-elasticbeanstalk-example ]  /// Bharth-TR
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- It is a PAAS-Service used for  deploying && Scaling Web-Apps(Java, Dot-Net) && Services. 
  --- It creates Dedicated Separate-FOLDER (Contains all data)  when Web-App is deployed in it.
- --- Maintains App-Versions 
+ --- Maintains App-Versions               
+ 
  --- It is a Paas Service used for deploying and Scaling Web applications (Java, Dot-Net) into Servers (Tomcat, NgiNx,ISS) 
  --- Using this, we can Easily Deploy Apps && Supports Auto-Scaling Feature 
  --- Shows Environment-Health based on Colors . 
  
+              ---- Select Platform && Upload War File && Create-App -----
+			  
+			  ---- Using URL of AWS , Paste in POTMAN && Perform CRUD on API // Data will be stored in RDS -----
  
  
+ --- No Need to create EC2 instance (Or)  Add WAR / JAR to S3-Bucket (*******)
+ --- Internally it creates EC2-Instance and Inside it Tomcat SErver is registered, where we can deploy Our Application 
  
+ 
+===================================================
+ 
+  AWS Fartage := [ https://github.com/Java-Techie-jt/springboot-docker-ecs ]
+~~~~~~~~~~~~~~
+ --- It is ServerLess Compute Engine for Docker-Containers that works wth EC2
+ --- Allow you to run Container without having Provision, Configure && Scaling 
+ --- Eliminates the need of EC2-Instance 
+ 
+   Boot-App ----> Docker-Image ---> Docker-Hub ----> EC2-Instance (creates Fartage Cluster) ---> AWS-Fartage (Run Container)
    
 =======================================================================================================================
 
@@ -158,11 +203,13 @@
   Eg :=  (1) S3  (2) EFS   (3) StorageGateWay  (4) AWS-BackUp
 
 
- (1) S3-Bucket :=  /// Invokes AWS-Lambda
+ (1) S3-Bucket :=  /// Invokes AWS-Lambda  ///   [ https://github.com/Java-Techie-jt/s3-file-storage-example ]
 ~~~~~~~~~~~~~~~~
  --- Open Cloud-Based Storage Service used for Online-Data Backup (Stores Files && Objects) . 
  --- (Versioning) It can have Multiple-Version of Object in One-Bucket.  (Can delete it)
- --- By Default Versioning is Disabled. 
+ --- By Default Versioning is Disabled.   // Internally it stores Data in  Object-Based-Storage format. 
+ --- Make Uploaded Jar / File to Public (*******)
+  
  --- It has 3 Storage-Classes (a) Standard  
                               (b) Infrequent-Access 
 							  (c) Glacier
@@ -222,26 +269,38 @@
  Advantages of cloud database :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
- (1) Lower costs
+ (a) Lower costs
 ~~~~~~~~~~~~~~~~~~
  --- Generally, company provider does not have to invest in databases. It can maintain and support one or more data centers.
 
- (2) Automated
+ (b) Automated
 ~~~~~~~~~~~~~~~~~~
  --- Cloud databases are enriched with a variety of automated processes such as recovery, failover, and auto-scaling.
 
- (3) Increased accessibility
+ (c) Increased accessibility
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- You can access your cloud-based database from any location, anytime. All you need is just an internet connection.
+
+======================================= 
+
+ (1) RDS := [ https://github.com/Java-Techie-jt/springboot-aws-rds ]  
+~~~~~~~~~~~
+ --- It is RDBMS  (MySQL, MariaDB, PostgreSQL) && (MongoDB , DynamoDB)
+ --- Can Connect to MySQL in Local-Machine Also && Default Port :: 5000 (*****)
+ 
+ 
+       Standard-Create ---->  Select Options Manually 
+	   
+	   Easy-Create ---------> Chooses All Options
  
 
- (1) RDS :=  It is RDBMS
-~~~~~~~~~~~
 
-
- (2) DynamoDB :=
-~~~~~~~~~~~~~~~~
+ (2) DynamoDB :=  (Youtube :: SimpleProgramming)
+~~~~~~~~~~~~~~~~  [ https://github.com/Java-Techie-jt/springboot-dynamodb-example ]
  --- It gives Fast && Reliable Performance with no Scalability Issues. 
+ --- It is a Semi-Structure Database. 
+ 
+   @DynamoDBTable /// 
 
 
 =======================================================================================================================
@@ -332,11 +391,17 @@
  --- Monitors AWS-Resources (EC2, ELB, S3, D/b))  && Customer Application Running on AWS Infra-Structure. 
  --- Monitors && Responses to the Changes happen to AWS-Resources.
  --- Amazon-Cloud-Watch used to Start && Stops Instances Automatically.  (********)
+ --- Can Configure like When My CPU-Utilization is More-Than 60% (Or) Less-Than 50% , Create / Remove Instances (*****) 
 
-                                Event --- Rule(Schedule-Time) ---- Target  
+
+                                Event --- Rule(Schedule-Time) ---- Target 
+
+                             Collect-Data ---> Monitor ---> Analyse ----> Act 								
+ 
  
    Eg := Sends Email (Through SNS-Service) to AWS-Admin Stating that "-- Instance-CPU Utilization is LESS_THAN 25% --" .
   ~~~~
+  
                                                                Triggers
    Eg := EC2(State-Changes) ---> Cloud-Watch(Event Rule-Trigger) ---> Lambda 'f'---> Route-53 (Maps Domain-Name to IP-Address) 
   ~~~~                                                                   
@@ -394,20 +459,67 @@
 
 
 =======================================================================================================================
+ 
+ Simple Queue Service (SQS) := [ https://github.com/Java-Techie-jt/springboot-aws-sqs ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is Distributed Message Queue Service which supports Programatically Sending && Receiving Messages by Web-Services 
+ --- It is Similar to Other Message-Services like Active-MQ, Rabbit-MQ etc ...
+ --- 
 
 
 =======================================================================================================================
 
+ 
+ Simple Notification Service (SNS) := [ https://github.com/Java-Techie-jt/springboot-aws-sqs ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Send Notification form Cloud . 
+ --- Create Topic, (When You Publish some event) Notification will be Send who are Subscribed to it. 
+ --- Notifys Admin / Developers when Application is having  Critical-Errors / Downside of Service. 
+ 
+ --- Subscription is done through Logging Into E-Mail && Clicking-Link
+ --- Subscription is done through Logging Into E-Mail && Clicking-Link
+ 
+             
+			 Cloud Watch Alarm   ------>   Topic     <-------   Notifications 
+				
+				                                          ( Email, HTTP, AWS-Lambda )
+
 
 =======================================================================================================================
 
+ APIGateWay :=
+~~~~~~~~~~~~~
+ 
+ 
+ --- Boot Application deployed in Elastic-Bean-Stack && Rest-End-Points need to Configure in API-GateWay.
+ --- So that when we Direcly HIt API-GateWay, It Routes that Particular Request which is Hosted in Elastic-Bean-Stack
+     
+           API-GateWay <---- ElasticBeanStack <---- Spring-Boot
 
 =======================================================================================================================
 
+ Elastic-Conatiner-Registry (ECR) := [ https://github.com/Java-Techie-jt/springboot-docker-ecs ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+ --- Acts like a Repositary where we can store Docker Image 
 
+
+                                        Push
+                Boot ----> Docker-Image -----> AWS-ECR ---> ECS ----> AWS-Fartage 
+ 
 =======================================================================================================================
 
+ AWS  Code-PipeLine  :=
+~~~~~~~~~~~~~~~~~~~~ 
+ --- Auto Deployes the Updated-Code with help of CI/CD. 
 
+
+ Eg :=
+~~~~~
+                                      AWS Code-PipeLine 
+                      buildspec.yml
+                         |                         (Deploy)
+   MC-Apps  ||||| ---> GitHub ----> AWS Code-Build --------> Elastic Bean Stack  ||||| 
+  
 =======================================================================================================================
 
 

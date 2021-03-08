@@ -1,6 +1,9 @@
 
 
-   Containers220......VirtualMachine......DockerCommands890
+   Containers220......VirtualMachine......DockerCommands890......
+   
+   
+   .....GITHUBLinks
    
    
    DockerizingSpringBootApplication 
@@ -12,6 +15,11 @@
 
 
    Ashok -IT ----> 12th October 2020
+   
+   
+   YOUTUBE ------>  Edureka(2) , Intellipat, SimpleLearn, TechWorld with Nana,
+   
+                        AmigosCode , freeCodeCamp.org   (**********)
 
 ======================================================================================================================
 
@@ -81,10 +89,14 @@ Note: If someone already created docker image, we can pull it and we can use it.
 
 ====================================================================================================================
 
- Containers220 := // Apps Runs in it.
+ Containers220 := // Apps Runs in it.  /// Images are used to Launch Conatiners 
 ~~~~~~~~~~~~~~
  --- It is Virtual-OS that  makes Our-Apps(in Image-format) i.e Executable-File) Platform-Independent.
  --- Used to deploy applications is called containerization. 
+ 
+      DOCKER in Containerization-Tool that Brings all the Software / InfraStruture that are required to Run
+
+                PACKAGE ONCE AND RUN ANY-WHERE (PORA)	  
  
  --- Containers are not new, but their use for easily deploying applications is.
  --- Containers ensure that our application works in any environment like development, test, or production.
@@ -814,7 +826,10 @@ Login Succeeded
     
   
 ================================================================================================================ 
-  
+ 
+ GITHUBLinks :=
+~~~~~~~~~~~~~~~
+  https://github.com/Java-Techie-jt/spring-boot-dockerize 
   
 ================================================================================================================
  
